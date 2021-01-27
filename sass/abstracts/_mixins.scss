@@ -1,0 +1,72 @@
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// VENDORS MIXINS
+@mixin backface-visibility($value) {
+  backface-visibility: $value;
+  -webkit-backface-visibility: $value;
+  -moz-backface-visibility: $value;
+  -ms-backface-visibility: $value;
+}
+
+@mixin background-clip($value) {
+  background-clip: $value;
+  -webkit-background-clip: $value;
+  -moz-background-clip: $value;
+  -ms-background-clip: $value;
+}
+
+@mixin box-decoration-break($value) {
+  box-decoration-break: $value;
+  -webkit-box-decoration-break: $value;
+  -moz-box-decoration-break: $value;
+  -ms-box-decoration-break: $value;
+}
+
+@mixin clip-path($value) {
+  clip-path: $value;
+  -webkit-clip-path: $value;
+  -moz-clip-path: $value;
+  -ms-clip-path: $value;
+}
+
+@mixin perspective($value) {
+  perspective: $value;
+  -webkit-perspective: $value;
+  -moz-perspective: $value;
+  -ms-perspective: $value;
+}
+
+@mixin placeholder {
+  &::placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &::-moz-input-placeholder {
+    @content;
+  }
+  &::-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin shape-outside($value) {
+  shape-outside: $value;
+  -webkit-shape-outside: $value;
+  -moz-shape-outside: $value;
+  -ms-shape-outside: $value;
+}
