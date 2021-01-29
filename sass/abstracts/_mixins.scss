@@ -1,116 +1,49 @@
 @mixin clearfix {
-  &::after {
-    content: '';
-    display: table;
-    clear: both;
-  }
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
 @mixin absCenter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
 
 // MEDIA QUERY MANAGER
 /*
-0-600px: Phone
-600-900px: Tablet portrait
-900px-1200px: Tablet landscape
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
 [1200 - 1800] is where our normal styles apply
-1800px + : Big descktop
+1800px + :      Big desktop
 
-$breakpoint argument choices:
+$breakpoint arguement choices:
 - phone
 - tab-port
 - tab-land
 - big-desktop
 
-ORDER: base + typography > general layout + grid > page layout > components
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
 */
-
 @mixin respond($breakpoint) {
-  @if $breakpoint == phone {
-    @media (max-width: 37.5em) {
-      //600px
-      @content;
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
     }
-  }
-  @if $breakpoint == tab-port {
-    @media (max-width: 56.25em) {
-      //900px
-      @content;
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     //900px
     }
-  }
-  @if $breakpoint == tab-land {
-    @media (max-width: 75em) {
-      //1200px
-      @content;
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    //1200px
     }
-  }
-  @if $breakpoint == big-desktop {
-    @media (min-width: 112.5em) {
-      //1800px
-      @content;
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    //1800
     }
-  }
 }
 
-// VENDORS MIXINS
-@mixin backface-visibility($value) {
-  backface-visibility: $value;
-  -webkit-backface-visibility: $value;
-  -moz-backface-visibility: $value;
-  -ms-backface-visibility: $value;
-}
-
-@mixin background-clip($value) {
-  background-clip: $value;
-  -webkit-background-clip: $value;
-  -moz-background-clip: $value;
-  -ms-background-clip: $value;
-}
-
-@mixin box-decoration-break($value) {
-  box-decoration-break: $value;
-  -webkit-box-decoration-break: $value;
-  -moz-box-decoration-break: $value;
-  -ms-box-decoration-break: $value;
-}
-
-@mixin clip-path($value) {
-  clip-path: $value;
-  -webkit-clip-path: $value;
-  -moz-clip-path: $value;
-  -ms-clip-path: $value;
-}
-
-@mixin perspective($value) {
-  perspective: $value;
-  -webkit-perspective: $value;
-  -moz-perspective: $value;
-  -ms-perspective: $value;
-}
-
-@mixin placeholder {
-  &::placeholder {
-    @content;
-  }
-  &::-webkit-input-placeholder {
-    @content;
-  }
-  &::-moz-input-placeholder {
-    @content;
-  }
-  &::-ms-input-placeholder {
-    @content;
-  }
-}
-
-@mixin shape-outside($value) {
-  shape-outside: $value;
-  -webkit-shape-outside: $value;
-  -moz-shape-outside: $value;
-  -ms-shape-outside: $value;
-}
